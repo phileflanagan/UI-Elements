@@ -1,0 +1,1 @@
+﻿Pacman Loader Animation made with CSS Animations. Preview [Here](http://codepen.io/phileflanagan/full/Krykvy/)

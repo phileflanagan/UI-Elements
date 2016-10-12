@@ -1,0 +1,130 @@
+@import "https://fonts.googleapis.com/css?family=Reem+Kufi";
+body {
+  padding: 100px;
+  background: #eee;
+  font-family: 'Reem Kufi', sans-serif;
+}
+
+.wrap {
+  text-align: center;
+  vertical-align: middle;
+  margin: 0 auto 100px;
+  background: white;
+  width: 800px;
+  padding-bottom: 100px;
+  box-shadow: 0px 40px 60px -20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+h1 {
+  color: #333;
+  padding: 50px;
+}
+
+.track {
+  border-top: blue 5px solid;
+  border-bottom: blue 5px solid;
+  background-color: black;
+  height: 90px;
+}
+
+.dots span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  margin: 10px 30px;
+}
+.dots span:nth-child(1) {
+  animation: disappear 5s linear 1.6s infinite;
+}
+.dots span:nth-child(2) {
+  animation: disappear 5s linear 1.9s infinite;
+}
+.dots span:nth-child(3) {
+  animation: disappear 5s linear 2.2s infinite;
+}
+.dots span:nth-child(4) {
+  animation: disappear 5s linear 2.6s infinite;
+}
+.dots span:nth-child(5) {
+  animation: disappear 5s linear 3.0s infinite;
+}
+.dots span:nth-child(6) {
+  animation: disappear 5s linear 3.3s infinite;
+}
+.dots span:nth-child(7) {
+  animation: disappear 5s linear 3.6s infinite;
+}
+.dots span:nth-child(8) {
+  animation: disappear 5s linear 4.0s infinite;
+}
+.dots span:nth-child(9) {
+  animation: disappear 5s linear 4.4s infinite;
+}
+
+.pacman {
+  width: 300px;
+  background: none;
+  display: inline-block;
+  position: relative;
+  animation: moveChomp 5s linear infinite;
+}
+.pacman:before, .pacman:after {
+  content: '';
+  display: block;
+  height: 0px;
+  width: 0px;
+  border: 30px solid yellow;
+  border-radius: 50%;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  position: absolute;
+  animation: topchomp 0.5s linear infinite reverse;
+}
+.pacman:after {
+  border-color: yellow;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  animation: bottomchomp 0.5s linear infinite;
+}
+
+@keyframes bottomchomp {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-45deg);
+  }
+}
+@keyframes topchomp {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(45deg);
+  }
+}
+@keyframes moveChomp {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 75%;
+  }
+}
+@keyframes disappear {
+  0% {
+    background-color: white;
+  }
+  1% {
+    background-color: transparent;
+  }
+  40% {
+    background-color: transparent;
+  }
+  41% {
+    background-color: white;
+  }
+}
