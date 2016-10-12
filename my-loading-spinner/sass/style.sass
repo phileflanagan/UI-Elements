@@ -1,0 +1,122 @@
+$red: #bb1a1a
+$dgray: #333
+$lgray: #eee
+$offwh: #f5f5f5
+
+body
+	background-color: $offwh
+	padding: 20px 40px
+	font-family: Raleway, Tahoma, sans-serif
+p
+	line-height: 2
+#loader
+	position: absolute
+	top: 0
+	left: 0
+	background-color: $lgray
+	min-width: 100vw
+	min-height: 100vh
+	z-index: 10
+.loading
+	position: absolute
+	left: 50%
+	top: 35%
+	transform: translate(-50%, -50%)
+	font-weight: 100
+	&:after
+		overflow: hidden
+		display: inline-block
+		vertical-align: bottom
+		animation: ellipsis steps(4, end) 2s infinite
+		content: "\2026" //ellipsis
+		width: 0px
+.inner
+	color: red
+	position: absolute
+	left: 50%
+	top: 50%
+	transform: translate(-50%, -50%)
+	font-size: 22px
+	animation-name: spin
+	animation-duration: 3s
+	animation-iteration-count: infinite
+.bar1
+	box-sizing: border-box
+	position: absolute
+	left: 50%
+	top: 50%
+	animation-name: spin
+	animation-duration: 1.5s
+	animation-iteration-count: infinite
+	animation-timing-function: linear
+	animation-direction: reverse
+	color: red
+	width: 100px
+	height: 100px
+	border-radius: 50%
+	border-top: 15px solid transparent
+	border-bottom: 15px solid transparent
+	border-left: 15px solid transparent
+	border-right: 15px solid #aaa
+	background-color: transparent
+.bar2
+	box-sizing: border-box
+	position: absolute
+	left: 50%
+	top: 50%
+	animation-name: spin
+	animation-duration: 2s
+	animation-iteration-count: infinite
+	animation-timing-function: linear
+	animation-direction: reverse
+	color: red
+	width: 40px
+	height: 40px
+	border-radius: 50%
+	border-top: 2px solid transparent
+	border-bottom: 2px solid transparent
+	border-left: 2px solid $dgray
+	border-right: 2px solid $dgray
+	background-color: transparent
+.bar3
+	box-sizing: border-box
+	position: absolute
+	left: 50%
+	top: 50%
+	animation-name: spin
+	animation-duration: 3s
+	animation-iteration-count: infinite
+	color: white
+	height: 70px
+	width: 70px
+	border-top: 3px solid $red
+	border-bottom: 3px solid $red
+	border-left: 3px solid transparent
+	border-right: 3px solid transparent
+	background-color: transparent
+	border-radius: 50%
+.bar3ish
+	box-sizing: border-box
+	position: absolute
+	left: 50%
+	top: 50%
+	animation-name: spin
+	animation-duration: 3s
+	animation-iteration-count: infinite
+	color: white
+	height: 65px
+	width: 65px
+	border-bottom: 8px solid $red
+	border-left: 16px solid transparent
+	border-right: 16px solid transparent
+	background-color: transparent
+	border-radius: 50%
+@keyframes spin 
+	0% 
+		transform: translate(-50%, -50%) rotate(0)
+	100% 
+		transform: translate(-50%, -50%) rotate(1turn)
+@keyframes ellipsis
+	to
+		width: 20px
+ 
