@@ -1,0 +1,72 @@
+body {
+  min-height: 100vh;
+  background-color: #333;
+  background: radial-gradient(circle, #666666, #333333);
+}
+
+.social-media-bar {
+  position: fixed;
+  color: white;
+  left: 0;
+  top: 5%;
+  line-height: 60px;
+}
+.social-media-bar a {
+  display: block;
+  color: inherit;
+  width: 260px;
+  text-decoration: none;
+  text-align: center;
+  perspective: 150px;
+  perspective-origin: 60px;
+}
+.social-media-bar a:hover span {
+  transform: rotateY(0deg);
+}
+.social-media-bar figure {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  margin-right: -5px;
+  width: 60px;
+  height: 60px;
+  background-color: #9f9f9f;
+}
+.social-media-bar figure figcaption {
+  position: absolute;
+  bottom: -20px;
+  width: 100%;
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+.social-media-bar span {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  height: 60px;
+  background-color: #9f9f9f;
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  width: 200px;
+  z-index: -2;
+  transition: transform 300ms ease-in-out;
+  transform-origin: left;
+  transform: rotateY(90deg);
+}
+
+#smb-facebook, #smb-facebook + span {
+  background: #3b5998;
+}
+
+#smb-twitter, #smb-twitter + span {
+  background: #00aced;
+}
+
+#smb-googleplus, #smb-googleplus + span {
+  background: #dd4b39;
+}
+
+#smb-pinterest, #smb-pinterest + span {
+  background: #cb2027;
+}
