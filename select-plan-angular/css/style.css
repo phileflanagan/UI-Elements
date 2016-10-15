@@ -9,9 +9,63 @@ body {
   margin: 0;
   text-align: center;
   background-color: #ccc;
-  height: 100vh;
 }
 
+/*
+ * Buttons
+ */
+.btn-group {
+  position: relative;
+  display: block;
+  margin: 15px auto;
+}
+.btn-group button {
+  border: none;
+  border-radius: 4px;
+  width: 100px;
+  padding: 15px 0;
+  color: #888;
+}
+
+button:focus {
+  outline: none;
+}
+
+#linux-btn.active {
+  position: relative;
+  background-color: #99afef;
+  color: #f5f5f5;
+}
+#linux-btn.active:after {
+  content: "";
+  border-top: 10px solid #99afef;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+}
+
+#windows-btn.active {
+  position: relative;
+  background-color: #83cc83;
+  color: #f5f5f5;
+}
+#windows-btn.active:after {
+  content: "";
+  border-top: 10px solid #83cc83;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+}
+
+/*
+ * Slider Container
+ */
 .slider-wrapper fieldset {
   border: none;
   margin: 0;
@@ -19,11 +73,10 @@ body {
 }
 
 .slider-wrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 0px 20px 60px;
+  display: block;
+  width: 720px;
+  margin: 0 auto;
+  padding: 20px 20px 60px;
   background: linear-gradient(#eee, #e0e0e0);
   border-radius: 4px;
   color: #666;
@@ -58,8 +111,6 @@ body {
   display: block;
   height: inherit;
   position: relative;
-  background-color: #99afef;
-  cursor: inherit;
   width: 80px;
   transition: left 300ms ease-in-out;
   z-index: 4;
@@ -69,7 +120,6 @@ body {
   position: absolute;
   bottom: -4px;
   left: 36px;
-  border-top: 4px solid #99afef;
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
 }
@@ -86,7 +136,7 @@ body {
   position: absolute;
 }
 
-#linux-form fieldset {
+.slider-input form fieldset {
   color: #888;
   text-transform: uppercase;
   font-size: 7pt;
@@ -97,39 +147,56 @@ body {
   position: absolute;
   border-radius: 4px;
 }
-#linux-form fieldset:hover {
+.slider-input form fieldset:hover {
   background-color: #99afef;
   color: #eee;
 }
-#linux-form fieldset:hover label.active {
+.slider-input form fieldset:hover label.active {
   background-color: #eee;
 }
-#linux-form fieldset label {
+.slider-input form fieldset label {
   display: block;
   padding: 4px 7px;
   box-sizing: content-box;
   border-radius: 4px;
 }
-#linux-form fieldset label.active {
+.slider-input form fieldset label.active {
   color: #99afef;
 }
-#linux-form fieldset:nth-child(2) {
+
+.slider-input.linux form fieldset:nth-child(2) {
   left: 0%;
 }
-#linux-form fieldset:nth-child(3) {
+.slider-input.linux form fieldset:nth-child(3) {
   left: calc(calc(100% - 100px) / 5 * 1);
 }
-#linux-form fieldset:nth-child(4) {
+.slider-input.linux form fieldset:nth-child(4) {
   left: calc(calc(100% - 100px) / 5 * 2);
 }
-#linux-form fieldset:nth-child(5) {
+.slider-input.linux form fieldset:nth-child(5) {
   left: calc(calc(100% - 100px) / 5 * 3);
 }
-#linux-form fieldset:nth-child(6) {
+.slider-input.linux form fieldset:nth-child(6) {
   left: calc(calc(100% - 100px) / 5 * 4);
 }
-#linux-form fieldset:nth-child(7) {
+.slider-input.linux form fieldset:nth-child(7) {
   left: calc(calc(100% - 100px) / 5 * 5);
+}
+
+.slider-input.windows form fieldset:nth-child(2) {
+  left: 0%;
+}
+.slider-input.windows form fieldset:nth-child(3) {
+  left: calc(calc(100% - 100px) / 4 * 1);
+}
+.slider-input.windows form fieldset:nth-child(4) {
+  left: calc(calc(100% - 100px) / 4 * 2);
+}
+.slider-input.windows form fieldset:nth-child(5) {
+  left: calc(calc(100% - 100px) / 4 * 3);
+}
+.slider-input.windows form fieldset:nth-child(6) {
+  left: calc(calc(100% - 100px) / 4 * 4);
 }
 
 .slider-output {
@@ -183,7 +250,57 @@ body {
   background-color: goldenrod;
 }
 
+.slider.linux span {
+  background-color: #99afef;
+}
+
+.slider.linux span:after {
+  border-top: 4px solid #99afef;
+}
+
+.slider.windows span {
+  background-color: #83cc83;
+}
+
+.slider.windows span:after {
+  border-top: 4px solid #83cc83;
+}
+
+.slider-input.linux form fieldset:hover {
+  background-color: #99afef;
+}
+
+.slider-input.windows form fieldset:hover {
+  background-color: #83cc83;
+}
+
+.slider-input.linux form fieldset label.active {
+  color: #99afef;
+}
+
+.slider-input.windows form fieldset label.active {
+  color: #83cc83;
+}
+
+.slider-output.linux figure {
+  background-color: #99afef;
+}
+
+.slider-output.windows figure {
+  background-color: #83cc83;
+}
+
+.slider-output.linux figure.price, .slider-output.windows figure.price {
+  background-color: #888;
+}
+
 @media (max-width: 768px) {
+  .btn-group {
+    position: relative;
+    display: block;
+    margin: 15px auto;
+  }
+
   .slider-wrapper {
     max-width: 90vw;
     margin: 10px auto;
@@ -192,6 +309,9 @@ body {
     transform: none;
     top: 0;
     left: 0;
+  }
+  .slider-wrapper h1 {
+    font-size: 20pt;
   }
 
   .slider {
@@ -205,10 +325,10 @@ body {
     display: none;
   }
 
-  #linux-form {
+  .slider-input.linux form, .slider-input.windows form {
     position: relative;
   }
-  #linux-form fieldset {
+  .slider-input.linux form fieldset, .slider-input.windows form fieldset {
     display: inline-block;
     vertical-align: top;
     position: relative;
@@ -219,34 +339,32 @@ body {
     background-color: #ccc;
     color: white;
   }
-  #linux-form fieldset label.active {
+  .slider-input.linux form fieldset label.active, .slider-input.windows form fieldset label.active {
     height: 18px;
     line-height: 20px;
-    background-color: #ddd;
+    background-color: #dfdfdf;
     color: #888;
-    border-bottom: 2px solid #99afef;
-    border-top: 2px solid #99afef;
   }
-  #linux-form fieldset:hover {
+  .slider-input.linux form fieldset:hover, .slider-input.windows form fieldset:hover {
     background-color: #ddd;
     color: #aaa;
   }
-  #linux-form fieldset:nth-child(2) {
+  .slider-input.linux form fieldset:nth-child(2), .slider-input.windows form fieldset:nth-child(2) {
     left: 0;
   }
-  #linux-form fieldset:nth-child(3) {
+  .slider-input.linux form fieldset:nth-child(3), .slider-input.windows form fieldset:nth-child(3) {
     left: 0;
   }
-  #linux-form fieldset:nth-child(4) {
+  .slider-input.linux form fieldset:nth-child(4), .slider-input.windows form fieldset:nth-child(4) {
     left: 0;
   }
-  #linux-form fieldset:nth-child(5) {
+  .slider-input.linux form fieldset:nth-child(5), .slider-input.windows form fieldset:nth-child(5) {
     left: 0;
   }
-  #linux-form fieldset:nth-child(6) {
+  .slider-input.linux form fieldset:nth-child(6), .slider-input.windows form fieldset:nth-child(6) {
     left: 0;
   }
-  #linux-form fieldset:nth-child(7) {
+  .slider-input.linux form fieldset:nth-child(7), .slider-input.windows form fieldset:nth-child(7) {
     left: 0;
   }
 
@@ -275,6 +393,16 @@ body {
   }
   .slider-output figure.price figcaption button {
     line-height: 30px;
+  }
+
+  .slider-input.linux form fieldset label.active {
+    border-bottom: 2px solid #99afef;
+    border-top: 2px solid #99afef;
+  }
+
+  .slider-input.windows form fieldset label.active {
+    border-bottom: 2px solid #83cc83;
+    border-top: 2px solid #83cc83;
   }
 }
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {

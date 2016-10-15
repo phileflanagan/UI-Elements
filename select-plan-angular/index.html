@@ -2,7 +2,7 @@
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>Service Selection Widget (Angular)</title>
+    <title>Select a Plan - Widget (Angular)</title>
     
     
     <link rel="stylesheet" href="css/normalize.css">
@@ -19,11 +19,17 @@
   <body>
 
     <div class="container" ng-app="app" ng-controller="serverCtrl as svr" ng-cloak>
-	<div class="slider-wrapper">
-		<h1>Select a Hosting Plan</h1>
-		<div class="slider-input">
+	
+	<div class="btn-group">
+		<button ng-click="svr.setOS('linux')" ng-class="{active: svr.os == 'linux'}" class="os-button" id="linux-btn">Linux</button>
+		<button ng-click="svr.setOS('windows')" ng-class="{active: svr.os == 'windows'}" class="os-button" id="windows-btn">Windows</button>
+	</div>
+	
+	<div class="slider-wrapper" ng-show="svr.os == 'linux'">
+		<h1>Select Your Linux Plan</h1>
+		<div class="slider-input linux">
 			<span class="slider-highlight"></span>
-			<form id="linux-form" class="slider">
+			<form id="linux-form" class="slider linux">
 				<span></span>
 				<fieldset ng-repeat="plan in svr.linuxOptions">
 					<input type="radio" name="linuxoption" value="{{$index + 1}}" id="{{'l' + $index}}" ng-model="svr.selection" ng-click="svr.adjustSlider()"/>
@@ -31,7 +37,7 @@
 				</fieldset>
 			</form>
 		</div>
-		<div class="slider-output">
+		<div class="slider-output linux">
 			<figure>
 				{{svr.selectedPlan.cpu}} 
 				<figcaption>CPU</figcaption>
@@ -50,10 +56,48 @@
 			</figure>
 			<figure class="price">
 				${{svr.selectedPlan.price}}.00<span>/month</span>
-				<figcaption><button>Order Now</button></figcaption>
+				<figcaption><button ng-click="svr.handleOrder()">Order Now</button></figcaption>
 			</figure>
 		</div>
 	</div>
+	
+	
+	<div class="slider-wrapper" ng-show="svr.os == 'windows'" id="windows-set">
+		<h1>Select Your Windows Plan</h1>
+		<div class="slider-input windows">
+			<span class="slider-highlight"></span>
+			<form id="windows-form" class="slider windows">
+				<span></span>
+				<fieldset ng-repeat="plan in svr.windowsOptions">
+					<input type="radio" name="windowsoption" value="{{$index + 1}}" id="{{'w' + $index}}" ng-model="svr.selection" ng-click="svr.adjustSlider()"/>
+					<label for="{{'w' + $index}}" ng-class="{active: svr.selection == $index + 1}">{{plan.name}}</label>
+				</fieldset>
+			</form>
+		</div>
+		<div class="slider-output windows">
+			<figure>
+				{{svr.selectedPlan.cpu}} 
+				<figcaption>CPU</figcaption>
+			</figure>
+			<figure>
+				{{svr.selectedPlan.ram}}
+				<figcaption>RAM</figcaption>
+			</figure>
+			<figure>
+				{{svr.selectedPlan.disk}}
+				<figcaption>Web Space</figcaption>
+			</figure>
+			<figure>
+				{{svr.selectedPlan.bandwidth}}
+				<figcaption>Bandwidth</figcaption>
+			</figure>
+			<figure class="price">
+				${{svr.selectedPlan.price}}.00<span>/month</span>
+				<figcaption><button ng-click="svr.handleOrder()">Order Now</button></figcaption>
+			</figure>
+		</div>
+	</div>
+	
 </div>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js'></script>
