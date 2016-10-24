@@ -1,0 +1,93 @@
+body {
+  background-color: #f7f7f7;
+}
+
+.container {
+  max-width: 960px;
+  padding: 0 3%;
+  margin: 0 auto;
+}
+
+.title {
+  position: relative;
+  color: #888;
+  text-align: center;
+}
+.title:after {
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  content: "";
+  width: 70px;
+  height: 4px;
+  background-color: #8db3d3;
+}
+
+.gallery-wrapper {
+  text-align: center;
+  width: 100%;
+}
+
+.gallery-item {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  width: 30%;
+  min-width: 250px;
+  height: 250px;
+  margin: 10px 1.66%;
+  background-color: #222;
+  border-radius: 4px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: 4px solid #8db3d3;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: all 350ms ease-in-out;
+}
+.gallery-item figcaption {
+  position: absolute;
+  bottom: -120px;
+  left: 50%;
+  transform: translateX(-50%) scale(3);
+  width: 80%;
+  height: 40px;
+  line-height: 40px;
+  background-color: #eee;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  font-size: 7pt;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #8db3d3;
+  transition: all 350ms ease-in-out;
+}
+.gallery-item:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  transition: all 350ms ease-in-out;
+}
+.gallery-item:hover {
+  background-size: 115%;
+}
+.gallery-item:hover figcaption {
+  bottom: 0;
+  transform: translateX(-50%);
+}
+
+.gallery-item:nth-child(1) {
+  background-image: url("http://fillmurray.com/660/660");
+}
+.gallery-item:nth-child(2) {
+  background-image: url("http://fillmurray.com/750/750");
+}
+.gallery-item:nth-child(3) {
+  background-image: url("http://fillmurray.com/700/700");
+}
