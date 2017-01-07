@@ -1,0 +1,35 @@
+a.downloadable {
+	position: relative;
+	text-decoration: none;
+	color: white;
+	height: 60px;
+	line-height: 60px;
+	padding: 0 10px 0 40px;
+	margin-left: 30px;
+	display: inline-block;
+	border: 5px solid #80af63;
+	background-color: #80af63;
+	border-top-right-radius: 35px;
+	border-bottom-right-radius: 35px;
+	font-family: 'helvetica neue';
+	text-transform: uppercase;
+	font-size: .7em;
+	letter-spacing: 1px;
+	transition: all 0.5s cubic-bezier(0.68, 3.45, 0.52, 0.21)
+}
+
+a.downloadable::before {
+	content: "";
+	height: 70px;
+	width: 70px;
+	position: absolute;
+	top: -5px;
+	left: -35px;
+	background-image: url('https://cloud.githubusercontent.com/assets/13624950/19422443/d8df9396-93e2-11e6-95a4-ef32e5497d1e.png');
+	background-size: contain;
+
+}
+
+a.downloadable:hover {
+	transform: scale(1.05);
+}
